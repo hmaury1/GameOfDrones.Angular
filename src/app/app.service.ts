@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AppSettings } from './app-setting';
+import { AppStore } from './app-store';
 
 @Injectable()
 export class AppService {
@@ -8,7 +8,7 @@ export class AppService {
 
     getConfiguration() {
         return this.http.get('./config.json').subscribe((result: any) => {
-            AppSettings.API_URL = result['api_url'];
+            AppStore.API_URL = result.api_url;
         });
     }
 }

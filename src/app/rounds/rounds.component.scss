@@ -1,5 +1,16 @@
+
+
 .btn-container{
-    display: inline-block;
-    justify-content: space-around;
-    padding: 0 30px;
+  display: inline-block;
+  justify-content: space-around;
+  padding: 0 30px;
+  cursor: pointer;
+
+  i {
+    font-size: 48px;  @media (min-width: 800px) {
+      font-size: 48px;
+    }  @media (min-width: 1200px) {
+      font-size: 64px;
+    }
   }
+}

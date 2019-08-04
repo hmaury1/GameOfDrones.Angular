@@ -13,6 +13,10 @@ Grid system
 */
 @import "themes/grid-system";
 
+body {
+  margin: 0;
+}
+
 .btn {
   padding: 0 20px;
   height: 50px;
@@ -80,3 +84,23 @@ Grid system
 .default:hover {
   background-color: lighten(#009688, 2);
 }
+
+table {
+  border-spacing: 0px;
+  tr.t-header, tr.t-content {
+    padding: 15px 0 15px 0;
+    height: 45px;
+    
+    &.even {
+      background-color: #e9e9e9;
+    }
+  
+    td, th {
+      padding: 0 15px 0 15px; 
+      border: none;    
+      min-width: 70px;
+    }
+  }
+}
+
+

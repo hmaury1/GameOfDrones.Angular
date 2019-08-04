@@ -1,20 +1,28 @@
-<h1>statistics</h1>
-
-<div class="row">
-  <div class="col-xs-1">#</div>
-  <div class="col-xs-2">Player one</div>
-  <div class="col-xs-1">Score player one</div>
-  <div class="col-xs-2">Player two</div>
-  <div class="col-xs-1">Score player two </div>
-  <div class="col-xs-2">Winner </div>
-  <div class="col-xs-3">Date</div>
+<div class="row center-xs">
+  <h1>Statistics</h1>
 </div>
-<div *ngFor="let game of games; index as i;" class="row">
-  <div class="col-xs-1">{{i}}</div>
-  <div class="col-xs-2">{{game.playerOneName}}</div>
-  <div class="col-xs-1">{{game.playerOneScore}}</div>
-  <div class="col-xs-2">{{game.playerTwoName}}</div>
-  <div class="col-xs-1">{{game.playerTwoScore}}</div>
-  <div class="col-xs-2">{{game.winner}}</div>
-  <div class="col-xs-3">{{game.gameDate}} </div>
-</div>
+<div class="row center-xs" style="overflow-x:auto;">
+    <table>
+      <tr class="t-header">
+        <th>No.</th>
+        <th>Player one</th>
+        <th>Score</th>
+        <th>Player two</th>
+        <th>Score</th>
+        <th>Winner</th>
+        <th>Rounds</th>
+        <th>Date</th>
+      </tr>
+      <tr *ngFor="let game of games; index as i; even as ev;" class="t-content" [ngClass]="{ even: ev }">
+        <td>{{i+1}}</td>
+        <td>{{game.playerOne.name}}</td>
+        <td>{{game.playerOne.score}}</td>
+        <td>{{game.playerTwo.name}}</td>
+        <td>{{game.playerTwo.score}}</td>
+        <td>{{getWinner(game)}}</td>
+        <td>{{game.rounds.length}} </td>
+        <td>{{game.createdOn | date }} </td>
+      </tr>
+      
+    </table>
+  </div>

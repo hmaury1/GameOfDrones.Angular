@@ -1,0 +1,19 @@
+<div class="row center-xs">
+    <h1>GAME OF DRONES</h1>
+</div>
+<div class="row center-xs">
+    <h2>Players registration</h2>
+</div>
+<div class="row center-xs">
+    <p>Please enter players name</p>
+</div>
+
+<form class="row center-xs" [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+    <div class="col-xs-12 col-sm-6">
+        <input type="text" placeholder="Player One" formControlName="namePlayer1Control">
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <input type="text" placeholder="Player Two" formControlName="namePlayer2Control">
+    </div>
+    <button [disabled]="registerForm.status != 'VALID'" class="btn default" type="submit">Play</button>
+</form>
