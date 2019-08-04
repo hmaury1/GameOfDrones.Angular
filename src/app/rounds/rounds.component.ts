@@ -52,7 +52,7 @@ export class RoundsComponent implements OnInit {
     if (!AppStore.GAME) {
       this.playAgain();
     }
-    this.showScore(AppStore.GAME.rounds);
+    this.showScore();
     setTimeout(() => {
       this.service.getMoves().subscribe((data: Move[]) => {
         this.moves = data;
@@ -80,16 +80,16 @@ export class RoundsComponent implements OnInit {
         if (AppStore.GAME.gameWinnerId && AppStore.GAME.gameWinnerId > 0) {
           this.winner = AppStore.GAME.gameWinnerId;
         }
-        this.showScore(AppStore.GAME.rounds);
+        this.showScore();
       }, error => {
 
       });
     }
   }
 
-  showScore(score: Round[]) {
-    if (score) {
-      this.rounds = score;
+  showScore() {
+    if (AppStore.GAME && AppStore.GAME.rounds) {
+      this.rounds = AppStore.GAME.rounds;
     }
   }
 
@@ -99,9 +99,8 @@ export class RoundsComponent implements OnInit {
 
   getPlayerName(id: number) {
     return AppStore.GAME.playerOne.id === id ? AppStore.GAME.playerOne.name :
-    AppStore.GAME.playerTwo.id === id ? AppStore.GAME.playerTwo.name : '';
+    AppStore.GAME.playerTwo.id === id ? AppStore.GAME.playerTwo.name : 'DRAW';
   }
-
   playAgain() {
     this.router.navigate(['/registration']);
   }
