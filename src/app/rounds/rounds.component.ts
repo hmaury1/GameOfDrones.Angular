@@ -57,7 +57,8 @@ export class RoundsComponent implements OnInit {
       this.service.getMoves().subscribe((data: Move[]) => {
         this.moves = data;
       }, error => {
-
+        AppStore.ERROR = error;
+        this.router.navigate(['/error']);
       });
     });
   }
@@ -82,7 +83,8 @@ export class RoundsComponent implements OnInit {
         }
         this.showScore();
       }, error => {
-
+        AppStore.ERROR = error;
+        this.router.navigate(['/error']);
       });
     }
   }

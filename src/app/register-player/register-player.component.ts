@@ -43,7 +43,8 @@ export class RegisterPlayerComponent implements OnInit {
       AppStore.GAME = data;
       this.router.navigate(['/rounds']);
     }, error => {
-      
+      AppStore.ERROR = error;
+      this.router.navigate(['/error']);
     });
   }
 

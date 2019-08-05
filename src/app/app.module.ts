@@ -9,6 +9,7 @@ import { RoundsComponent } from './rounds/rounds.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AppService } from './app.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     RegisterPlayerComponent,
     RoundsComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

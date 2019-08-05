@@ -3,9 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterPlayerComponent } from './register-player/register-player.component';
 import { RoundsComponent } from './rounds/rounds.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 const routes: Routes = [
+  {
+    path: 'error',
+    component: ErrorPageComponent
+  },
   {
     path: 'statistics',
     component: StatisticsComponent
